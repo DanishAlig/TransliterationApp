@@ -1,0 +1,158 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi">
+    </script>
+    <link rel="stylesheet" href="FontStyle.css">
+    <!-- <script src="https://gist.github.com/ibnesayeed/1204839.js"></script> -->
+    <script type="text/javascript">
+
+        // Load the Google Transliterate API
+        google.load("elements", "1", {
+            packages: "transliteration"
+        });
+
+        function onLoad() {
+
+            //For Urdu
+            var optionsUrdu = {
+                sourceLanguage:
+                    google.elements.transliteration.LanguageCode.ENGLISH,
+                destinationLanguage:
+                    [google.elements.transliteration.LanguageCode.URDU],
+                shortcutKey: 'ctrl+g',
+                transliterationEnabled: true
+            };
+
+            // Create an instance on TransliterationControl with the required options.
+            var controlUrdu =
+                new google.elements.transliteration.TransliterationControl(optionsUrdu);
+
+            // Enable transliteration in the textbox with Urdu textarea
+            controlUrdu.makeTransliteratable(['transliterateUrdu']);
+
+            // For Hindi
+            var optionsHindi = {
+                sourceLanguage:
+                    google.elements.transliteration.LanguageCode.ENGLISH,
+                destinationLanguage:
+                    [google.elements.transliteration.LanguageCode.HINDI],
+                shortcutKey: 'ctrl+g',
+                transliterationEnabled: true
+            };
+
+            // Create an instance on TransliterationControl with the required options.
+            var controlHindi =
+                new google.elements.transliteration.TransliterationControl(optionsHindi);
+
+            // Enable transliteration in the textbox with id
+            // 'transliterateTextarea'.
+            controlHindi.makeTransliteratable(['transliterateHindi']);
+        }
+        google.setOnLoadCallback(onLoad);
+    </script>
+</head>
+<body>
+
+    <!--English to Urdu-->
+    <!--<div class="container">
+        <div class="row">
+            <div class="panl panel-default" id="mainPanel">
+                <div class="panel-heading">
+                    <h3>Type in English (Press Ctrl+g to toggle between English and Urdu)</h3>
+                </div>
+
+                <div class="panel-body">
+                    <fieldset class="col-lg-6 col-lg-offset-3">
+                        <legend>Transliterate:</legend>
+
+                        <textarea id="transliterateTextarea" class="form-control" rows="10" cols="10"></textarea>
+
+
+                    </fieldset>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </div>-->
+    <!--Tabs and pills to support multiple-->
+    <div class="container">
+        <div class="row">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#UR">To Urdu</a></li>
+                <li><a data-toggle="tab" href="#HI">To Hindi</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="UR" class="tab-pane fade in active">
+                   
+                    <div class="panl panel-default mainPanel">
+                        <div class="panel-heading">
+                            <h3>Type in English (Press Ctrl+g to toggle between English and Urdu)</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <fieldset>
+                                <legend>Transliterate:</legend>
+
+                                <textarea id="transliterateUrdu" class="form-control" rows="10" cols="10"></textarea>
+
+
+                            </fieldset>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="HI" class="tab-pane fade in">
+                    <div class="panl panel-default mainPanel">
+                        <div class="panel-heading">
+                            <h3>Type in English (Press Ctrl+g to toggle between English and Hindi)</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <fieldset>
+                                <legend>Transliterate:</legend>
+
+                                <textarea id="transliterateHindi" class="form-control" rows="10" cols="10"></textarea>
+
+
+                            </fieldset>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="container">
+        <br />
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3>Type in English (Press Ctrl+g to toggle between English and Urdu)</h3>
+            </div>
+            <div class="panel-body">
+
+                <fieldset class="col-md-6">
+                    <legend>Fieldset Title</legend>
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p>Fieldset content...</p>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>-->
+</body>
+</html>
